@@ -1,0 +1,82 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1148-gef01dd1e)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_0000019fbe8c6820 .scope module, "and_not_and_or_gates_tb" "and_not_and_or_gates_tb" 2 3;
+ .timescale 0 0;
+v0000019fbe8b5e10_0 .var "a", 0 0;
+v0000019fbe8b5eb0_0 .var "b", 0 0;
+v0000019fbe8b5f50_0 .var "c", 0 0;
+v0000019fbe8b5ff0_0 .net "i", 0 0, L_0000019fbe893260;  1 drivers
+v0000019fbe8b6090_0 .net "m", 0 0, L_0000019fbe8b61d0;  1 drivers
+v0000019fbe8b6130_0 .net "r", 0 0, L_0000019fbe8b62b0;  1 drivers
+v0000019fbe913cf0_0 .net "rl", 0 0, L_0000019fbe8b6240;  1 drivers
+S_0000019fbe8c69b0 .scope module, "Instance0" "and_not_and_or_gates" 2 7, 3 1 0, S_0000019fbe8c6820;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "i";
+    .port_info 1 /OUTPUT 1 "m";
+    .port_info 2 /OUTPUT 1 "rl";
+    .port_info 3 /OUTPUT 1 "r";
+    .port_info 4 /INPUT 1 "a";
+    .port_info 5 /INPUT 1 "b";
+    .port_info 6 /INPUT 1 "c";
+L_0000019fbe893260 .functor AND 1, v0000019fbe8b5e10_0, v0000019fbe8b5eb0_0, C4<1>, C4<1>;
+L_0000019fbe8b61d0 .functor NOT 1, v0000019fbe8b5eb0_0, C4<0>, C4<0>, C4<0>;
+L_0000019fbe8b6240 .functor AND 1, v0000019fbe8b5e10_0, v0000019fbe8b5eb0_0, v0000019fbe8b5f50_0, C4<1>;
+L_0000019fbe8b62b0 .functor OR 1, v0000019fbe8b5e10_0, v0000019fbe8b5eb0_0, C4<0>, C4<0>;
+v0000019fbe892e20_0 .net "a", 0 0, v0000019fbe8b5e10_0;  1 drivers
+v0000019fbe892b60_0 .net "b", 0 0, v0000019fbe8b5eb0_0;  1 drivers
+v0000019fbe8c6b40_0 .net "c", 0 0, v0000019fbe8b5f50_0;  1 drivers
+v0000019fbe8c6be0_0 .net "i", 0 0, L_0000019fbe893260;  alias, 1 drivers
+v0000019fbe8c46f0_0 .net "m", 0 0, L_0000019fbe8b61d0;  alias, 1 drivers
+v0000019fbe8c4790_0 .net "r", 0 0, L_0000019fbe8b62b0;  alias, 1 drivers
+v0000019fbe8c4830_0 .net "rl", 0 0, L_0000019fbe8b6240;  alias, 1 drivers
+    .scope S_0000019fbe8c6820;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019fbe8b5e10_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019fbe8b5eb0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019fbe8b5f50_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019fbe8b5e10_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019fbe8b5eb0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019fbe8b5f50_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019fbe8b5e10_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019fbe8b5eb0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019fbe8b5f50_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019fbe8b5e10_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019fbe8b5eb0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019fbe8b5f50_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0000019fbe8c6820;
+T_1 ;
+    %vpi_call 2 18 "$monitor", "T=%t |a=%b |b=%b |c=%b |i(and)=%b  |m(not)=%b | rl(and)=%b | r(or)=%b", $time, v0000019fbe8b5e10_0, v0000019fbe8b5eb0_0, v0000019fbe8b5f50_0, v0000019fbe8b5ff0_0, v0000019fbe8b6090_0, v0000019fbe913cf0_0, v0000019fbe8b6130_0 {0 0 0};
+    %vpi_call 2 19 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 20 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "VERILOG_CIRCUITS2_TB.v";
+    "./VERILOG_CIRCUITS2.v";
